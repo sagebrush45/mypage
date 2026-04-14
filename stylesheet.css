@@ -1,0 +1,408 @@
+/* ベース設定 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.7;
+  background-color: #f7f5f2;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.nav a {
+  padding: 8px 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #4a8c7c;
+  transition: width 0.2s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav-contact {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #4a8c7c;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+}
+
+/* ヒーロー */
+.hero {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  background-image: url("hero.jpg"); /* 好きな写真に差し替えてください */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  margin-top: 64px; /* 固定ヘッダー分 */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.hero-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+/* セクション共通 */
+.section {
+  padding: 64px 0;
+}
+
+.section-gray {
+  background-color: #f0ede8;
+}
+
+.section h2 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section p {
+  font-size: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* 2カラムレイアウト */
+.two-column {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.section-text p {
+  margin-bottom: 12px;
+}
+
+.feature-list,
+.info-list {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.feature-list li,
+.info-list li {
+  margin-bottom: 6px;
+}
+
+/* ダミー画像・地図 */
+.section-image,
+.section-map .map-placeholder {
+  background-color: #ddd;
+  border-radius: 12px;
+  min-height: 240px;
+}
+
+.section-image {
+  background-image: url("about.jpg"); /* サロン写真に差し替え */
+  background-size: cover;
+  background-position: center;
+}
+
+.map-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* カード */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: 700;
+  color: #4a8c7c;
+  margin-bottom: 8px;
+}
+
+.note {
+  font-size: 13px;
+  color: #777;
+  margin-top: 16px;
+}
+
+.voice-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.voice-body {
+  font-size: 14px;
+}
+
+/* フォーム */
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 999px;
+  background-color: #c25b5b;
+  color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ボタン */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #4a8c7c;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3b7063;
+  transform: translateY(-1px);
+}
+
+/* フッター */
+.site-footer {
+  background-color: #262626;
+  color: #eee;
+  padding: 24px 0;
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-weight: 600;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    height: 56px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 8px 16px 12px;
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 8px 0;
+  }
+
+  .nav-contact {
+    border: none;
+    background-color: #4a8c7c;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    height: 70vh;
+  }
+
+  .hero-inner {
+    text-align: left;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 16px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
